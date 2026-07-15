@@ -149,7 +149,7 @@ footer .logo-img{height:62px}
 /* hero dashboard */
 .hero-dash{position:relative;animation:fadeUp .8s ease .4s both;padding-bottom:70px}
 .hero-photo-card{overflow:hidden;padding:0;aspect-ratio:4/5;max-width:420px;margin:0 auto}
-.hero-photo-card img{width:100%;height:100%;object-fit:cover;display:block}
+.hero-photo-card img,.hero-photo-card video{width:100%;height:100%;object-fit:cover;display:block}
 .dash-float{position:absolute;left:50%;bottom:0;transform:translateX(-50%);width:min(92%,460px);padding:20px 22px;z-index:3}
 .dash-main{padding:26px;position:relative;overflow:hidden}
 .dash-main::before{content:"";position:absolute;top:-60px;right:-60px;width:180px;height:180px;border-radius:50%;background:radial-gradient(circle,rgba(247,148,29,.25),transparent 70%)}
@@ -176,6 +176,9 @@ footer .logo-img{height:62px}
 .marquee .m-label{text-align:center;font-size:.68rem;letter-spacing:.3em;text-transform:uppercase;color:#8a8a8a;margin-bottom:16px}
 .marquee .track{display:flex;white-space:nowrap;animation:scrollX 26s linear infinite;width:max-content}
 .marquee .track span{font-family:'Anton',sans-serif;letter-spacing:.14em;color:rgba(15,23,42,.32);font-size:1.05rem;text-transform:uppercase;display:flex;align-items:center}
+.marquee .track span.logo-item{letter-spacing:0}
+.marquee .track span.logo-item img{height:34px;width:auto;display:block;filter:grayscale(100%);opacity:.55;transition:filter .25s ease,opacity .25s ease}
+.marquee .track span.logo-item:hover img{filter:grayscale(0%);opacity:1}
 .marquee .track span::after{content:"◆";color:rgba(247,148,29,.6);font-size:.6rem;margin:0 34px}
 .marquee:hover .track{animation-play-state:paused}
 @keyframes scrollX{to{transform:translateX(-50%)}}
@@ -241,7 +244,9 @@ footer .logo-img{height:62px}
 .t-stars{color:var(--orange);letter-spacing:4px;margin-bottom:14px;font-size:.95rem}
 .t-slide blockquote{font-size:1.05rem;font-style:italic;color:#374151;line-height:1.75}
 .t-who{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:22px}
-.t-ava{width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,var(--orange),var(--orange2));color:#111;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:.9rem}
+.t-ava{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,var(--orange),var(--orange2));color:#111;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:.9rem;overflow:hidden}
+.t-ava.has-logo{background:#fff;border:1px solid var(--line);padding:8px}
+.t-ava.has-logo img{width:100%;height:100%;object-fit:contain}
 .t-who cite{font-style:normal;text-align:left}
 .t-who cite b{display:block;font-size:.9rem}
 .t-who cite span{font-size:.75rem;color:var(--muted)}
@@ -261,9 +266,9 @@ footer .logo-img{height:62px}
 .why-check .ck{flex:0 0 auto;width:22px;height:22px;border-radius:50%;background:var(--orange);color:#111;font-size:.7rem;font-weight:800;display:flex;align-items:center;justify-content:center;margin-top:2px}
 .why-check b{font-size:.92rem;font-weight:600;display:block;margin-bottom:3px}
 .why-check p{font-size:.82rem;color:var(--muted)}
-.why-visual{position:relative;padding:14px;overflow:visible}
-.why-photo{width:100%;height:auto;display:block;border-radius:12px;aspect-ratio:6/5;object-fit:cover}
-.why-badge{position:absolute;left:-24px;bottom:34px;display:flex;align-items:center;gap:12px;padding:14px 18px}
+.why-visual{position:relative;padding:14px;overflow:visible;align-self:center}
+.why-photo{width:100%;height:auto;display:block;border-radius:12px;aspect-ratio:2.611/1;object-fit:cover}
+.why-badge{position:absolute;left:16px;bottom:-22px;display:flex;align-items:center;gap:12px;padding:14px 18px;z-index:2}
 .wb-ico{width:38px;height:38px;border-radius:50%;background:#FFF4E5;display:flex;align-items:center;justify-content:center;font-size:1.1rem}
 .why-badge .num{font-family:'Anton',sans-serif;font-size:1.3rem;color:var(--orange);line-height:1}
 .why-badge p{font-size:.68rem;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin-top:2px}
@@ -376,6 +381,7 @@ body.has-mouse .mouse-glow{opacity:1}
 .t-slide:nth-of-type(1) .t-ava{background:linear-gradient(135deg,var(--blue),var(--purple));color:#fff}
 .t-slide:nth-of-type(2) .t-ava{background:linear-gradient(135deg,var(--orange),var(--pink));color:#fff}
 .t-slide:nth-of-type(3) .t-ava{background:linear-gradient(135deg,var(--green),var(--cyan));color:#111}
+.t-slide:nth-of-type(4) .t-ava{background:linear-gradient(135deg,var(--yellow),var(--orange));color:#111}
 /* Colorful marquee separators */
 .marquee .track span:nth-child(6n+1)::after{color:var(--orange)}
 .marquee .track span:nth-child(6n+2)::after{color:var(--pink)}
@@ -532,7 +538,7 @@ section{overflow:hidden}
       <div class="ring ring1" aria-hidden="true"></div>
       <div class="ring ring2" aria-hidden="true"></div>
       <div class="glass hero-photo-card">
-        <img src="hero-photo.jpg" alt="Edge Solution Global team collaborating on a client project" loading="eager">
+        <video src="hero-video.mp4" poster="hero-video-poster.jpg" autoplay muted loop playsinline aria-label="Edge Solution Global team at work"></video>
       </div>
       <div class="glass dash-float">
         <div class="dash-head">
@@ -553,8 +559,18 @@ section{overflow:hidden}
 <div class="marquee" aria-label="Clients we have worked with">
   <p class="m-label">Trusted by growing brands</p>
   <div class="track">
-    <span>Tax Mahir</span><span>Royal Builders</span><span>PNC Solar</span><span>Live Kitchen</span><span>ALM Travels &amp; Tours</span><span>Luvano Logistics</span>
-    <span>Tax Mahir</span><span>Royal Builders</span><span>PNC Solar</span><span>Live Kitchen</span><span>ALM Travels &amp; Tours</span><span>Luvano Logistics</span>
+    <span class="logo-item"><img src="client-tax-mahir.png" alt="Tax Mahir"></span>
+    <span class="logo-item"><img src="client-royal-builders.png" alt="Royal Builders"></span>
+    <span class="logo-item"><img src="client-pnc-solar.png" alt="PNC Solar"></span>
+    <span class="logo-item"><img src="client-alm-travels.png" alt="ALM Travel & Tours"></span>
+    <span>Quetta Namkeen Family Restaurant</span>
+    <span>Luvano Logistics</span>
+    <span class="logo-item"><img src="client-tax-mahir.png" alt="Tax Mahir"></span>
+    <span class="logo-item"><img src="client-royal-builders.png" alt="Royal Builders"></span>
+    <span class="logo-item"><img src="client-pnc-solar.png" alt="PNC Solar"></span>
+    <span class="logo-item"><img src="client-alm-travels.png" alt="ALM Travel & Tours"></span>
+    <span>Quetta Namkeen Family Restaurant</span>
+    <span>Luvano Logistics</span>
   </div>
 </div>
 
@@ -663,7 +679,7 @@ section{overflow:hidden}
             <path class="ln" d="M224 34c-5 0-7 5-7 10s2 10 7 10V34zM224 54v6"/>
           </svg></div>
           <span class="tag">Restaurant Launch</span>
-          <h3>Live Kitchen</h3>
+          <h3>Quetta Namkeen Family Restaurant</h3>
           <p>Full launch package: logo, menu, brochures, social posts and AI-based reels for a brand-new restaurant.</p>
           <ul><li>Successful brand launch</li><li>Unique visual identity</li><li>Strong local visibility</li></ul>
         </div>
@@ -733,17 +749,22 @@ section{overflow:hidden}
       <div class="glass t-slide active">
         <div class="t-stars">★★★★★</div>
         <blockquote>Edge Solution Global built our brand from zero — logo, identity, and social media content. Clients now take us seriously from the very first look.</blockquote>
-        <div class="t-who"><div class="t-ava">TM</div><cite><b>Tax Mahir</b><span>Tax Advisory &amp; Compliance</span></cite></div>
+        <div class="t-who"><div class="t-ava has-logo"><img src="client-tax-mahir.png" alt="Tax Mahir logo"></div><cite><b>Tax Mahir</b><span>Tax Advisory &amp; Compliance</span></cite></div>
       </div>
       <div class="glass t-slide">
         <div class="t-stars">★★★★★</div>
         <blockquote>Our property posts finally look premium. The consistent branding helped us stand out in a very competitive real estate market.</blockquote>
-        <div class="t-who"><div class="t-ava">RB</div><cite><b>Royal Builders</b><span>Real Estate</span></cite></div>
+        <div class="t-who"><div class="t-ava has-logo"><img src="client-royal-builders.png" alt="Royal Builders logo"></div><cite><b>Royal Builders</b><span>Real Estate</span></cite></div>
       </div>
       <div class="glass t-slide">
         <div class="t-stars">★★★★★</div>
         <blockquote>They handled everything for our launch — logo, menu, reels and marketing. We opened with a professional presence from day one.</blockquote>
-        <div class="t-who"><div class="t-ava">LK</div><cite><b>Live Kitchen</b><span>Restaurant</span></cite></div>
+        <div class="t-who"><div class="t-ava">QN</div><cite><b>Quetta Namkeen Family Restaurant</b><span>Restaurant</span></cite></div>
+      </div>
+      <div class="glass t-slide">
+        <div class="t-stars">★★★★★</div>
+        <blockquote>Our new logo and brochure finally make us look like the established travel company we are. Customers trust us more from the first impression.</blockquote>
+        <div class="t-who"><div class="t-ava has-logo"><img src="client-alm-travels.png" alt="ALM Travel & Tours logo"></div><cite><b>ALM Travel &amp; Tours</b><span>Travel &amp; Tourism</span></cite></div>
       </div>
       <div class="t-dots" role="tablist" aria-label="Testimonials"></div>
     </div>
