@@ -46,6 +46,54 @@
   "priceRange": "$$"
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What does the free marketing audit include?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We review your social media pages, Google presence, website and current ads (if any), then send you a short report showing exactly where you're losing customers and what to fix first — no obligation."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much do your services cost?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Every business is different, so we price per project or per month based on what you actually need. Message us on WhatsApp with your goals and we'll send a clear, itemized quote — usually within 24 hours."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How soon will I see results?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Branding and website work delivers immediately. For ads and lead generation, expect the first qualified leads within the first weeks, with performance improving as we optimize. SEO is a longer game — typically a few months to rank. We'll set honest expectations before we start."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you work with businesses outside Lahore?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — we work with clients across Pakistan and internationally. Everything is managed online through WhatsApp, email and video calls, with regular updates so you're never in the dark."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can you handle everything, or only specific services?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Both. Some clients hand us their complete digital presence — branding, content, ads, website — while others need one specific service like a logo or a campaign. We build the engagement around you."
+      }
+    }
+  ]
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
@@ -408,6 +456,27 @@ body.has-mouse .mouse-glow{opacity:1}
 section{overflow:hidden}
 .container{position:relative;z-index:1}
 
+/* ============ INDUSTRIES TABS ============ */
+.ind-tabs{display:flex;gap:10px;margin-top:40px;flex-wrap:wrap}
+.ind-tab{background:#fff;border:1px solid var(--line);border-radius:999px;padding:11px 20px;font-family:'Poppins',sans-serif;font-size:.84rem;font-weight:500;color:var(--muted);cursor:pointer;transition:all .22s ease;white-space:nowrap}
+.ind-tab:hover{border-color:var(--orange);color:var(--orange)}
+.ind-tab.active{background:linear-gradient(135deg,var(--orange),var(--orange2));border-color:transparent;color:#111;font-weight:600;box-shadow:0 8px 22px rgba(247,148,29,.3)}
+.ind-panels{margin-top:36px}
+.ind-panel{display:none;grid-template-columns:.9fr 1.1fr;gap:44px;align-items:start}
+.ind-panel.active{display:grid;animation:fadeUp .4s ease}
+.ind-text h3{font-size:1.4rem;font-weight:700;margin-bottom:14px}
+.ind-text p{color:var(--muted);font-size:.95rem;margin-bottom:24px}
+.ind-list{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:20px 24px}
+.ind-list li{display:flex;gap:12px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px 16px;box-shadow:0 8px 24px rgba(15,23,42,.04)}
+.ind-list .ck{flex:0 0 auto;width:22px;height:22px;border-radius:50%;background:var(--orange);color:#111;font-size:.7rem;font-weight:800;display:flex;align-items:center;justify-content:center;margin-top:2px}
+.ind-list b{font-size:.88rem;font-weight:600;display:block;margin-bottom:3px}
+.ind-list p{font-size:.8rem;color:var(--muted)}
+@media (max-width:860px){
+  .ind-panel{grid-template-columns:1fr}
+  .ind-list{grid-template-columns:1fr}
+  .ind-tabs{overflow-x:auto;flex-wrap:nowrap;padding-bottom:8px;-webkit-overflow-scrolling:touch}
+}
+
 /* ============ LOCATION MAP ============ */
 .loc-split{display:grid;grid-template-columns:1.3fr .9fr;gap:26px;margin-top:48px;align-items:stretch}
 .map-wrap{position:relative;border-radius:var(--radius);overflow:hidden;min-height:420px}
@@ -541,6 +610,7 @@ fbq('track', 'PageView');
       <a href="#process">Process</a>
       <a href="#testimonials">Testimonials</a>
       <a href="#faq">FAQ</a>
+      <a href="/blog/">Blog</a>
       <a class="nav-cta" href="https://wa.me/923237864800?text=Hi%20Edge%20Solution%20Global!%20I%27d%20like%20to%20book%20a%20free%20strategy%20call." target="_blank" rel="noopener">Book Free Strategy Call</a>
     </div>
   </div>
@@ -641,6 +711,103 @@ fbq('track', 'PageView');
     <div><div class="num" data-target="24" data-suffix="/7">0</div><p>WhatsApp Support</p></div>
   </div>
 </div>
+
+<!-- INDUSTRIES -->
+<section id="industries" style="background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="container">
+    <p class="eyebrow">Industries We Serve</p>
+    <h2>Marketing that speaks <span class="badge"><span>your industry</span></span></h2>
+    <p class="lead" style="margin-top:16px">Every industry buys differently. We've run campaigns across six-plus sectors — pick yours and see how we approach it.</p>
+    <div class="ind-tabs" role="tablist" aria-label="Industries">
+      <button class="ind-tab active" data-ind="re" role="tab" aria-selected="true">Real Estate &amp; Builders</button>
+      <button class="ind-tab" data-ind="food" role="tab" aria-selected="false">Restaurants &amp; Cafés</button>
+      <button class="ind-tab" data-ind="solar" role="tab" aria-selected="false">Solar &amp; Energy</button>
+      <button class="ind-tab" data-ind="travel" role="tab" aria-selected="false">Travel &amp; Tours</button>
+      <button class="ind-tab" data-ind="retail" role="tab" aria-selected="false">Retail &amp; E-commerce</button>
+      <button class="ind-tab" data-ind="pro" role="tab" aria-selected="false">Professional Services</button>
+    </div>
+    <div class="ind-panels">
+      <div class="ind-panel active" data-ind="re">
+        <div class="ind-text">
+          <h3>Real Estate &amp; Builders</h3>
+          <p>From plot files to full housing projects — we generate serious buyer leads and build the trust that dealers, builders and developers need to close.</p>
+          <a class="btn btn-orange" href="https://wa.me/923237864800?text=Hi!%20I%20run%20a%20real%20estate%20business%20and%20want%20to%20discuss%20marketing." target="_blank" rel="noopener">Discuss Your Project →</a>
+        </div>
+        <ul class="ind-list">
+          <li><span class="ck">✓</span><div><b>Buyer Lead Campaigns</b><p>Facebook &amp; Instagram ads built to bring in genuine inquiries.</p></div></li>
+          <li><span class="ck">✓</span><div><b>WhatsApp Lead Funnels</b><p>Every lead lands in your WhatsApp, ready for follow-up.</p></div></li>
+          <li><span class="ck">✓</span><div><b>Project Branding</b><p>Launch creatives, posters and reels that sell the lifestyle.</p></div></li>
+          <li><span class="ck">✓</span><div><b>AI Visuals &amp; Videos</b><p>3D-style visuals and cinematic AI videos for your projects.</p></div></li>
+        </ul>
+      </div>
+      <div class="ind-panel" data-ind="food">
+        <div class="ind-text">
+          <h3>Restaurants &amp; Cafés</h3>
+          <p>Menus, launches and daily content that fill tables. We've taken a restaurant brand from zero to launch — logo to menu to local buzz.</p>
+          <a class="btn btn-orange" href="https://wa.me/923237864800?text=Hi!%20I%20run%20a%20restaurant%20and%20want%20to%20discuss%20marketing." target="_blank" rel="noopener">Discuss Your Project →</a>
+        </div>
+        <ul class="ind-list">
+          <li><span class="ck">✓</span><div><b>Brand &amp; Menu Design</b><p>Identity, menus and packaging that make food look irresistible.</p></div></li>
+          <li><span class="ck">✓</span><div><b>Content &amp; Reels</b><p>Mouth-watering creatives and reels for daily posting.</p></div></li>
+          <li><span class="ck">✓</span><div><b>Local Awareness Ads</b><p>Offers and campaigns targeted to your delivery radius.</p></div></li>
+          <li><span class="ck">✓</span><div><b>Profile Setup</b><p>Google, Facebook and Instagram profiles done properly.</p></div></li>
+        </ul>
+      </div>
+      <div class="ind-panel" data-ind="solar">
+        <div class="ind-text">
+          <h3>Solar &amp; Energy</h3>
+          <p>Solar buyers research before they call. We position your company as the credible choice and bring in qualified installation inquiries.</p>
+          <a class="btn btn-orange" href="https://wa.me/923237864800?text=Hi!%20I%20run%20a%20solar%20business%20and%20want%20to%20discuss%20marketing." target="_blank" rel="noopener">Discuss Your Project →</a>
+        </div>
+        <ul class="ind-list">
+          <li><span class="ck">✓</span><div><b>Installation Leads</b><p>Campaigns aimed at homeowners and businesses ready to switch.</p></div></li>
+          <li><span class="ck">✓</span><div><b>Educational Content</b><p>Explainers that answer buyer questions and build confidence.</p></div></li>
+          <li><span class="ck">✓</span><div><b>Trust Building</b><p>Reviews, case posts and branding that make you the safe choice.</p></div></li>
+          <li><span class="ck">✓</span><div><b>Quote Funnels</b><p>Quote requests straight to your WhatsApp, organized.</p></div></li>
+        </ul>
+      </div>
+      <div class="ind-panel" data-ind="travel">
+        <div class="ind-text">
+          <h3>Travel &amp; Tours</h3>
+          <p>Packages sell on presentation. We build travel brands that look established, and campaigns that turn browsers into bookings.</p>
+          <a class="btn btn-orange" href="https://wa.me/923237864800?text=Hi!%20I%20run%20a%20travel%20business%20and%20want%20to%20discuss%20marketing." target="_blank" rel="noopener">Discuss Your Project →</a>
+        </div>
+        <ul class="ind-list">
+          <li><span class="ck">✓</span><div><b>Package Campaigns</b><p>Umrah, tours and visa offers promoted to the right audience.</p></div></li>
+          <li><span class="ck">✓</span><div><b>Brand &amp; Brochure Design</b><p>Profiles and brochures that make you look established.</p></div></li>
+          <li><span class="ck">✓</span><div><b>Seasonal Offers</b><p>Timely pushes and retargeting when demand peaks.</p></div></li>
+          <li><span class="ck">✓</span><div><b>Booking Inquiries</b><p>Inquiries routed to WhatsApp for quick conversion.</p></div></li>
+        </ul>
+      </div>
+      <div class="ind-panel" data-ind="retail">
+        <div class="ind-text">
+          <h3>Retail &amp; E-commerce</h3>
+          <p>From product creatives to conversion campaigns — we help shops and online stores sell more, both in-store and online.</p>
+          <a class="btn btn-orange" href="https://wa.me/923237864800?text=Hi!%20I%20run%20a%20retail%20or%20e-commerce%20business%20and%20want%20to%20discuss%20marketing." target="_blank" rel="noopener">Discuss Your Project →</a>
+        </div>
+        <ul class="ind-list">
+          <li><span class="ck">✓</span><div><b>Product Creatives</b><p>Catalog shoots-style designs, offers and campaign visuals.</p></div></li>
+          <li><span class="ck">✓</span><div><b>Sales Campaigns</b><p>Ads built around offers, seasons and fast sell-through.</p></div></li>
+          <li><span class="ck">✓</span><div><b>Page Management</b><p>Consistent posting and page handling, done for you.</p></div></li>
+          <li><span class="ck">✓</span><div><b>Remarketing</b><p>Bring back visitors and past buyers automatically.</p></div></li>
+        </ul>
+      </div>
+      <div class="ind-panel" data-ind="pro">
+        <div class="ind-text">
+          <h3>Professional Services</h3>
+          <p>Tax consultants, clinics, institutes and agencies — we make your expertise visible and turn it into consistent client inquiries.</p>
+          <a class="btn btn-orange" href="https://wa.me/923237864800?text=Hi!%20I%20provide%20professional%20services%20and%20want%20to%20discuss%20marketing." target="_blank" rel="noopener">Discuss Your Project →</a>
+        </div>
+        <ul class="ind-list">
+          <li><span class="ck">✓</span><div><b>Authority Content</b><p>Posts and videos that show you know your field.</p></div></li>
+          <li><span class="ck">✓</span><div><b>Local Visibility</b><p>Google profile and local search presence, optimized.</p></div></li>
+          <li><span class="ck">✓</span><div><b>Inquiry Campaigns</b><p>Targeted ads that bring clients, not just clicks.</p></div></li>
+          <li><span class="ck">✓</span><div><b>Professional Branding</b><p>Clean identity that earns trust before the first call.</p></div></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- CASE STUDIES -->
 <section id="work">
@@ -953,6 +1120,7 @@ fbq('track', 'PageView');
           <li><a href="#testimonials">Testimonials</a></li>
           <li><a href="#faq">FAQ</a></li>
           <li><a href="#location">Our Location</a></li>
+          <li><a href="/blog/">Blog</a></li>
         </ul>
       </div>
       <div>
@@ -1051,6 +1219,7 @@ document.querySelectorAll('.nav-links a').forEach(function(a){
   var groups=[
     '#services .eyebrow,#services h2,#services .lead','#services .svc',
     '.stats-grid > div',
+    '#industries .eyebrow,#industries h2,#industries .lead','.ind-tabs,.ind-panels',
     '#work .eyebrow,#work h2,#work .lead','.case',
     '#process .eyebrow,#process h2','.step',
     '#testimonials .eyebrow,#testimonials h2,.t-slider',
@@ -1155,6 +1324,19 @@ function csScroll(dir){
   if(typeof fbq!=='function')return;
   document.querySelectorAll('a[href*="wa.me"]').forEach(function(a){
     a.addEventListener('click',function(){fbq('track','Contact');});
+  });
+})();
+
+// Industries tabs
+(function(){
+  var tabs=document.querySelectorAll('.ind-tab');
+  var panels=document.querySelectorAll('.ind-panel');
+  tabs.forEach(function(tab){
+    tab.addEventListener('click',function(){
+      var key=tab.getAttribute('data-ind');
+      tabs.forEach(function(t){t.classList.toggle('active',t===tab);t.setAttribute('aria-selected',t===tab?'true':'false');});
+      panels.forEach(function(p){p.classList.toggle('active',p.getAttribute('data-ind')===key);});
+    });
   });
 })();
 
